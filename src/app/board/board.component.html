@@ -1,12 +1,8 @@
-<svg viewBox="0 0 2 2" xmlns="http://www.w3.org/2000/svg">
-  <ng-container
-    *ngFor="let pixelCol of pixels; index as x">
-    <rect
-      *ngFor="let color of pixelCol; index as y"
-      [attr.x]="x"
-      [attr.y]="y"
-      [attr.fill]="color"
-      width="1"
-      height="1" />
-  </ng-container>
-</svg>
+<div *ngFor="let pixelsRow of pixels; index as y">
+  <app-pixel
+    *ngFor="let color of pixelsRow; index as x"
+    [x]="x"
+    [y]="y"
+    [color]="color"
+  ></app-pixel>
+</div>

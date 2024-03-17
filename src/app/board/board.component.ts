@@ -11,7 +11,7 @@ import { PixelComponent } from '../pixel/pixel.component';
 })
 export class BoardComponent {
   pixels: string[][] = [
-    ["red", "blue"],
-    ["yellow", "orange"],
+    ["red", "blue", "yellow"],
+    ["yellow", "#444444", "green"],
   ];
 }
