@@ -11,6 +11,8 @@ import { NgIf } from '@angular/common';
 })
 export class PixelComponent {
   @Input({ required: true }) color!: string;
-  @Input({ required: true }) x!: number;
-  @Input({ required: true }) y!: number;
+  handleClick() {
+    console.log(this.color);
+    this.color = "black";
+  }
 }

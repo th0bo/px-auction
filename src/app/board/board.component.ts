@@ -10,8 +10,9 @@ import { PixelComponent } from '../pixel/pixel.component';
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
-  pixels: string[][] = [
-    ["red", "blue", "yellow"],
-    ["yellow", "#444444", "green"],
-  ];
+  pixels: string[] = ["red", "blue", "yellow", "green", "#444444", "green", "red", "red", "blue"];
+
+  get matrixOrder() {
+    return Math.sqrt(this.pixels.length);
+  }
 }

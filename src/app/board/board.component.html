@@ -1,8 +1,6 @@
-<div *ngFor="let pixelsRow of pixels; index as y">
+<div attr.style="grid-template-columns: repeat({{ matrixOrder }}, 1fr);">
   <app-pixel
-    *ngFor="let color of pixelsRow; index as x"
-    [x]="x"
-    [y]="y"
+    *ngFor="let color of pixels; index as i"
     [color]="color"
   ></app-pixel>
 </div>
