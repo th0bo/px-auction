@@ -1,6 +1,11 @@
-<div attr.style="grid-template-columns: repeat({{ matrixOrder }}, 1fr);">
-  <app-pixel
+<svg attr.viewBox="0 0 {{ matrixOrder }} {{ matrixOrder }}">
+  <rect
     *ngFor="let color of pixels; index as i"
-    [color]="color"
-  ></app-pixel>
-</div>
+    [attr.x]="i % matrixOrder"
+    [attr.y]="(i - (i % matrixOrder)) / matrixOrder"
+    width="1"
+    height="1"
+    attr.style="fill: {{ color }};"
+    (click)="handleClick(i)">
+  </rect>
+</svg>
