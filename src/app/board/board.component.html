@@ -1,11 +1,13 @@
-<svg attr.viewBox="0 0 {{ matrixOrder }} {{ matrixOrder }}">
-  <rect
-    *ngFor="let color of pixels; index as i"
-    [attr.x]="i % matrixOrder"
-    [attr.y]="(i - (i % matrixOrder)) / matrixOrder"
-    width="1"
-    height="1"
-    attr.style="fill: {{ color }};"
-    (click)="handleClick(i)">
-  </rect>
+<svg attr.viewBox="0 0 {{ pixels[0].length }} {{ pixels.length }}">
+  <ng-container *ngFor="let row of pixels; index as y">
+    <rect
+      *ngFor="let color of row; index as x"
+      [attr.x]="x"
+      [attr.y]="y"
+      width="1"
+      height="1"
+      attr.style="fill: {{ color }};"
+      (click)="handleClick(x, y)">
+    </rect>
+  </ng-container>
 </svg>

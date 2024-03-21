@@ -11,10 +11,10 @@ export class PixelService {
 
   constructor(private http: HttpClient) { }
 
-  getPixels(): Observable<string[]> {
-    return this.http.get<string[]>(this.pixelsUrl).pipe(
+  getPixels(): Observable<string[][]> {
+    return this.http.get<string[][]>(this.pixelsUrl).pipe(
       tap((_) => console.log('fetched pixels')),
-      catchError(this.handleError<string[]>('getPixels', ["red", "green", "green", "red"]))
+      catchError(this.handleError<string[][]>('getPixels', [["red", "green"], ["green", "red"]]))
     );
   }
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { MATRIX } from '../mock-matrix';
 import { PixelService } from '../pixel.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { PixelService } from '../pixel.service';
   styleUrl: './board.component.scss',
 })
 export class BoardComponent {
-  pixels: string[] = [];
+  pixels: string[][] = [[]];
 
   constructor(private pixelService: PixelService) { }
 
@@ -25,10 +24,10 @@ export class BoardComponent {
   }
 
   get matrixOrder() {
-    return Math.sqrt(this.pixels.length);
+    return Math.round(Math.sqrt(this.pixels.length));
   }
 
-  handleClick(i: number): void {
-    this.pixels[i] = 'black';
+  handleClick(x: number, y: number): void {
+    this.pixels[y][x] = 'black';
   }
 }
