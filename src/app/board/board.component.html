@@ -11,3 +11,10 @@
     </rect>
   </ng-container>
 </svg>
+<app-editor
+  *ngIf="selectedPixel !== null"
+  [x]="selectedPixel.x"
+  [y]="selectedPixel.y"
+  [color]="pixels[selectedPixel.y][selectedPixel.x]"
+  >
+</app-editor>

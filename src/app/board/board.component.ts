@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { PixelService } from '../pixel.service';
+import { EditorComponent } from '../editor/editor.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf, EditorComponent],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss',
 })
 export class BoardComponent {
   pixels: string[][] = [[]];
+  selectedPixel: { x: number, y: number } | null = null;
 
   constructor(private pixelService: PixelService) { }
 
@@ -28,6 +30,10 @@ export class BoardComponent {
   }
 
   handleClick(x: number, y: number): void {
-    this.pixels[y][x] = 'black';
+    if (this.selectedPixel?.x === x && this.selectedPixel?.y === y) {
+      this.selectedPixel = null;
+    } else {
+      this.selectedPixel = { x, y };
+    }
   }
 }
