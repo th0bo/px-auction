@@ -1,1 +1,6 @@
-<p>{{ x }} {{ y }} {{ color }}</p>
+<form [formGroup]="bidForm" (ngSubmit)="onSubmit()">
+  <legend>({{ x }}, {{ y }})</legend>
+  <input id="color" type="color" formControlName="color">
+  <input id="bid" type="number" formControlName="bid">
+  <input type="submit">
+</form>

@@ -15,6 +15,7 @@
   *ngIf="selectedPixel !== null"
   [x]="selectedPixel.x"
   [y]="selectedPixel.y"
-  [color]="pixels[selectedPixel.y][selectedPixel.x]"
+  [currentColor]="pixels[selectedPixel.y][selectedPixel.x]"
+  [lastBid]="0"
   >
 </app-editor>
