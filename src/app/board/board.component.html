@@ -1,21 +1,17 @@
 <svg attr.viewBox="0 0 {{ pixels[0].length }} {{ pixels.length }}">
+  <defs>
+    <radialGradient id="RadialGradient1">
+      <stop offset="0%" stop-opacity="0" />
+      <stop offset="100%" stop-color="red" stop-opacity="1" />
+    </radialGradient>
+  </defs>
   <ng-container *ngFor="let row of pixels; index as y">
-    <rect
-      *ngFor="let color of row; index as x"
-      [attr.x]="x"
-      [attr.y]="y"
-      width="1"
-      height="1"
-      attr.style="fill: {{ color }};"
-      (click)="handleClick(x, y)">
+    <rect *ngFor="let color of row; index as x" [attr.x]="x" [attr.y]="y" width="1" height="1"
+      attr.style="fill: {{ color }};" (click)="handleClick(x, y)"
+      [attr.selected]="x === selectedPixel?.x && y === selectedPixel?.y">
     </rect>
   </ng-container>
 </svg>
-<app-editor
-  *ngIf="selectedPixel !== null"
-  [x]="selectedPixel.x"
-  [y]="selectedPixel.y"
-  [currentColor]="pixels[selectedPixel.y][selectedPixel.x]"
-  [lastBid]="0"
-  >
+<app-editor *ngIf="selectedPixel !== null" [x]="selectedPixel.x" [y]="selectedPixel.y"
+  [currentColor]="pixels[selectedPixel.y][selectedPixel.x]" [lastBid]="0">
 </app-editor>

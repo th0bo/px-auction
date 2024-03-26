@@ -4,3 +4,12 @@ svg {
   border: 1px solid black;
   display: inline-block;
 }
+rect[selected=true] {
+  fill: url(#RadialGradient1) !important;
+}
+.stop0 {
+  stop-opacity: 0;
+}
+.stop1 {
+  stop-color: black;
+}
