@@ -1,15 +1,11 @@
 svg {
-  width: min(100vw, 100vh);
+  width: 800px;
   aspect-ratio: 1/1;
   border: 1px solid black;
   display: inline-block;
 }
-rect[selected=true] {
-  fill: url(#RadialGradient1) !important;
-}
-.stop0 {
-  stop-opacity: 0;
-}
-.stop1 {
-  stop-color: black;
+rect#selected-pixel-outline {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.2px;
 }
