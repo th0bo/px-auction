@@ -12,7 +12,7 @@ import { EditorComponent } from '../editor/editor.component';
 })
 export class BoardComponent {
   pixels: string[][] = [[]];
-  selectedPixel: { x: number, y: number } | null = null;
+  selectedPixel: { x: number, y: number, clientX: number, clientY: number } | null = null;
 
   constructor(private pixelService: PixelService) { }
 
@@ -29,11 +29,11 @@ export class BoardComponent {
     return Math.round(Math.sqrt(this.pixels.length));
   }
 
-  handleClick(x: number, y: number): void {
+  handleClick(x: number, y: number, event: MouseEvent): void {
     if (this.selectedPixel?.x === x && this.selectedPixel?.y === y) {
       this.selectedPixel = null;
     } else {
-      this.selectedPixel = { x, y };
+      this.selectedPixel = { x, y, clientX: event.clientX, clientY: event.clientY };
     }
   }
 }

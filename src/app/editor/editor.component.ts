@@ -14,12 +14,20 @@ export class EditorComponent {
   @Input({ required: true })
   y!: number;
   @Input({ required: true })
+  clientX!: number;
+  @Input({ required: true })
+  clientY!: number;
+  @Input({ required: true })
   currentColor!: string;
   @Input({ required: true })
   lastBid!: number;
 
   get minNextBid(): number {
     return this.lastBid + Math.max(Math.ceil(this.lastBid * 0.1), 1);
+  }
+
+  get maxNextBid(): number {
+    return Number(Array.from({ length: (this.minNextBid.toString(10).length + 1) }).map(() => "9").join(""));
   }
 
   bidForm = new FormGroup({

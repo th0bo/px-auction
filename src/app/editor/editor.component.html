@@ -1,6 +1,6 @@
-<form [formGroup]="bidForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="bidForm" (ngSubmit)="onSubmit()" attr.style="left: {{ clientX }}px; top: {{ clientY }}px;">
   <legend>({{ x }}, {{ y }})</legend>
   <input id="color" type="color" formControlName="color">
-  <input id="bid" type="number" formControlName="bid">
+  <input id="bid" type="number" formControlName="bid" [min]="minNextBid" [max]="maxNextBid">
   <input type="submit">
 </form>

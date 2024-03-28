@@ -1,3 +1,10 @@
 form {
   display: inline-block;
+  background-color: white;
+  border: solid black 1px;
+  position: fixed;
+}
+form > * {
+  display: block;
+  max-width: 100%;
 }
