@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SaleService } from '../sale.service';
+import { Sale } from '../sale';
 
 @Component({
   selector: 'app-editor',
@@ -21,6 +23,10 @@ export class EditorComponent {
   currentColor!: string;
   @Input({ required: true })
   lastBid!: number;
+
+  constructor(
+    private saleService: SaleService,
+  ) { }
 
   get minNextBid(): number {
     return this.lastBid + Math.max(Math.ceil(this.lastBid * 0.1), 1);
@@ -52,5 +58,13 @@ export class EditorComponent {
 
   onSubmit() {
     console.warn(this.bidForm.value);
+    const sale: Sale = {
+      x: this.x,
+      y: this.y,
+      bid: this.bidForm.value.bid as number,
+      color: this.bidForm.value.color as string,
+      purchaser: "John",
+    }
+    this.saleService.addSale(sale);
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MATRIX } from './mock-matrix';
+import { Sale } from './sale';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { MATRIX } from './mock-matrix';
 export class InMemoryDataService {
   createDb() {
     const pixels = MATRIX;
-    return { pixels };
+    const sales: Sale[] = [];
+    return { pixels, sales };
   }
 
   constructor() { }
